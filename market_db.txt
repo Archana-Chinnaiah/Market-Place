@@ -1,0 +1,65 @@
+CREATE:
+
+create table category (
+	category_id serial PRIMARY KEY,
+	category_name VARCHAR ( 50 ) UNIQUE NOT NULL,
+	description varchar(50) NOT NULL
+);
+
+create table item (
+	item_id serial PRIMARY KEY,
+	item_name VARCHAR ( 50 ) NOT NULL,
+	price numeric( 50 ) NOT NULL,
+	seller_name varchar(50) not null,
+    description varchar(50) not null,
+	available_quantity int,
+	category_id int,
+	constraint fk_category
+      foreign key(category_id) 
+	  references category(category_id)
+);
+
+create table customer(
+	customer_id serial primary key,
+    username varchar(20) unique not null,
+    password varchar(20) not null,
+    address varchar(100) not null,
+    mobile_no numeric not null
+);
+
+create table customer_cart(
+	id serial primary key,
+	customer_id int not null,
+	item_id int not null,
+	quantity int,
+	total_price numeric,
+	constraint fk_customer
+      foreign key(customer_id)
+	  references customer(customer_id),
+	constraint fk_item
+      foreign key(item_id) 
+	  references item(item_id)	
+);
+
+
+
+INSERT:
+
+
+insert into category (category_name,description) values ('book','this category has a list of books'),('toys','this category has different types of toys'),('car','this category has various company cars'),('furniture','this category contains has various furnitures');
+
+
+insert into item (item_name,price,seller_name,description,available_quantity,category_id) values ('python basics',500,'amazon','python basics with fundamental',12,1),('advanced python',550,'M.S.DOS','advanced python for developers',10,1),('honda',450000,'honda city','blue color car with 4 seaters',5,3),('dinning table',5000,'raj kings','dinning table with 6 chairs',2,4),('dog',350,'toys zone','white dog toy with black ears',6,2);
+
+
+insert into customer (username,
+    password,
+    address,
+    mobile_no) values ('archana','archu1','devakottai',9876054321),('kathir','kathir2','karaikudi',9008765334),('Anu','anu3','chettinad',8776445950),('agilan','agil4','madurai',8733931231);
+
+
+insert into customer_cart (customer_id,
+	item_id,
+	quantity,
+	total_price) values(1,4,2,10000),(4,2,1,550),(3,1,3,1500),(2,3,1,450000),(1,5,2,750);
+
