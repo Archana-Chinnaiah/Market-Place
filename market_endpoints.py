@@ -20,24 +20,11 @@ def login():
 
 @app.route("/categories", methods=["GET"])
 def list_categories():
-    return available_categories()
+    return jsonify(available_categories())
 
 @app.route("/categories/<category_id>/items", methods=["GET"])
 def items_list(category_id):
-    return items_in_category(category_id)
-
-@app.route("/cart/<customer_id>", methods=["GET"])
-def item_list(customer_id):
-    items_in_cart = session.query(CustomerCart).filter_by(customer_id=customer_id).all()
-    cart_list = []
-    for item in items_in_cart:
-        obj = {
-            'item id': item.item_id,
-            'quantity': item.quantity,
-            'Total_price': int(item.total_price)
-        }
-        cart_list.append(obj)
-    return jsonify(cart_list)
+    return jsonify(items_in_category(category_id))
 
 @app.route("/cart", methods=["POST"])
 def add_to_cart():
@@ -48,7 +35,7 @@ def add_to_cart():
 
 @app.route("/cart/<customer_id>", methods=["GET"])
 def item_list(customer_id):
-    return items_in_cart(customer_id)
+    return jsonify(items_in_cart(customer_id))
 
 @app.route("/cart/<cart_id>", methods=["PUT"])
 def update_quantity(cart_id):
