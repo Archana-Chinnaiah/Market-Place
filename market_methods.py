@@ -18,7 +18,7 @@ def available_categories():
             'description': category.description
         }
         categories.append(obj)
-    return jsonify(categories)
+    return categories
 
 def items_in_category(category_id):
     items = session.query(Item).filter_by(category_id=category_id).all()
@@ -32,7 +32,7 @@ def items_in_category(category_id):
             'description': item.description
         }
         items_list.append(obj)
-    return jsonify(items_list)
+    return items_list
 
 def item_add_to_cart(customer_id,item_id,quantity):
     exists = session.query(CustomerCart).filter_by(customer_id=customer_id,item_id=item_id).first()
@@ -59,7 +59,7 @@ def items_in_cart(customer_id):
             'Total_price': int(item.total_price)
         }
         cart_list.append(obj)
-    return jsonify(cart_list)
+    return cart_list
 
 def update_method(cart_id,quantity):
     cart = session.query(CustomerCart).filter_by(id=cart_id).first()
