@@ -26,6 +26,19 @@ def list_categories():
 def items_list(category_id):
     return items_in_category(category_id)
 
+@app.route("/cart/<customer_id>", methods=["GET"])
+def item_list(customer_id):
+    items_in_cart = session.query(CustomerCart).filter_by(customer_id=customer_id).all()
+    cart_list = []
+    for item in items_in_cart:
+        obj = {
+            'item id': item.item_id,
+            'quantity': item.quantity,
+            'Total_price': int(item.total_price)
+        }
+        cart_list.append(obj)
+    return jsonify(cart_list)
+
 @app.route("/cart", methods=["POST"])
 def add_to_cart():
     customer_id = request.form['customer_id']
