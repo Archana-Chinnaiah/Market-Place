@@ -1,6 +1,7 @@
 from market_endpoints import *
 from marketplace import *
 
+
 def login_method(username,password):
     user = session.query(Customer).filter_by(username=username,password=password).first()
     if user:
@@ -9,16 +10,17 @@ def login_method(username,password):
         return "Invalid Credentials"
 
 def available_categories():
-    categories = []
-    category = session.query(Category).all()
-    for category in category:
+    category_list = []
+    categories = session.query(Category).all()
+    for category in categories:
         obj = {
             'id': category.category_id,
             'name': category.category_name,
             'description': category.description
         }
-        categories.append(obj)
-    return categories
+        category_list.append(obj)
+    return category_list
+
 
 def items_in_category(category_id):
     items = session.query(Item).filter_by(category_id=category_id).all()
@@ -64,10 +66,10 @@ def items_in_cart(customer_id):
 def update_method(cart_id,quantity):
     cart = session.query(CustomerCart).filter_by(id=cart_id).first()
     item = cart.item_id
-    need = session.query(Item).filter_by(item_id=item).first()
+    needed_quantity = session.query(Item).filter_by(item_id=item).first()
     cart.quantity = quantity
-    if int(need.available_quantity) >= int(quantity):
-        cart.total_price = int(quantity) * int(need.price)
+    if int(needed_quantity.available_quantity) >= int(quantity):
+        cart.total_price = int(quantity) * int(needed_quantity.price)
         session.add(cart)
         session.commit()
         return "Updated Successfully"
@@ -79,5 +81,3 @@ def delete_method(cart_id):
     session.delete(item)
     session.commit()
     return "deleted Successfully"
-
-
