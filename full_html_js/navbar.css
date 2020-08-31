@@ -1,0 +1,80 @@
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+  
+  .nav-bgcolor {
+    background: -webkit-linear-gradient(45deg, #5533ff 40%, #25ddf5 100%);
+    background: linear-gradient(45deg, #5533ff 40%, #25ddf5 100%);
+  }
+  
+  .navbar-brand {
+    display: inline-block;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+  }
+  
+  .nav-link {
+    color: white !important;
+    cursor: pointer;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+  }
+  
+  ol, ul {
+    list-style: none;
+  }
+  li {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .nav-line{
+    text-decoration: none;
+    transition: color 0.1s, background-color 0.1s;
+  }
+  .nav-line {
+    position: relative;
+    display: block;
+    transition: color 0.1s,background-color 0.1s,padding 0.2s ease-in;
+    color: rgb(255, 255, 255);
+  }
+  
+  #top-menu {
+    float: right;
+  }
+  
+  .logo-styles {
+    width: 60px;
+    height: auto !important;
+  }
+  
+  .nav-line::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    transform-origin: right top;
+    transform: scale(0, 1);
+    transition: color 0.1s,transform 0.2s ease-out;
+  }
+  .nav-line:active::before {
+    background-color: #000;
+  }
+  .nav-line:hover::before, .nav-line:focus::before {
+    transform-origin: left top;
+    transform: scale(1, 1);
+  }

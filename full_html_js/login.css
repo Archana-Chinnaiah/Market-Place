@@ -1,0 +1,61 @@
+.login-card {
+    max-width: 415px;
+    min-width: 415px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding: .875rem 1.5rem;
+    background-color: #fff;
+    color: #37474f;
+    margin-top: 10%;
+    border-radius: 0 52px !important;
+    z-index: 2;
+}
+
+.login-page {
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom,#29cdf6,#4179fb,#5233ff);
+}
+
+.logo {
+    display: flex !important;
+    justify-content: center;
+    padding-top: 4%;
+}
+
+.cus-logo {
+    width: 35%;
+}
+
+.company-name {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: #f77300;
+    margin-top: 10px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.login-info {
+    font-size: 13px;
+    font-weight: 550
+}
+
+.login-btn-bg {
+    background-color: #4175fb;
+    color: #fff;
+    border-radius: 52px!important;
+    width: 100%;
+}
+
+#form-style {
+    margin-top: 6%;
+    margin-bottom: 6%;
+}
+
+.bg-image {
+    width: 65%;
+    margin-top: 6%;
+}
