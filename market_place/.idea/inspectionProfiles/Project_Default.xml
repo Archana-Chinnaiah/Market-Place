@@ -1,0 +1,37 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E302" />
+          <option value="E303" />
+          <option value="W292" />
+          <option value="E231" />
+          <option value="E305" />
+          <option value="E265" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="marketplace.customer_cart" />
+          <option value="market_endpoints.Category" />
+          <option value="market_endpoints.category" />
+          <option value="market_endpoints.cart" />
+          <option value="dict.*" />
+          <option value="category_dao.*" />
+          <option value="category.*" />
+          <option value="item.item_controller.item_dao" />
+          <option value="item.item_controller.items_in_category" />
+          <option value="customer_package.customer_controller.*" />
+          <option value="item_package.item_controller.*" />
+          <option value="customer_cart_package.customer_cart_dao.*" />
+          <option value="customer_cart_package.customer_cart_controller.*" />
+          <option value="item_package.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
